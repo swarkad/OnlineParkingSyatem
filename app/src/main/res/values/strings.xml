@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Online Parking System</string>
+
+    <string-array name="app_users">
+        <item>Select User</item>
+        <item>Admin User</item>
+        <item>Owner User</item>
+        <item>End User</item>
+    </string-array>
+
+    <string-array name="app_users_registration">
+        <item>New Registration</item>
+        <item>End User Registration</item>
+        <item>Owner User Registration</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+</resources>

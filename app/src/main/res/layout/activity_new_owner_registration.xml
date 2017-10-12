@@ -1,0 +1,152 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:background="@drawable/image2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+
+        <EditText
+            android:id="@+id/fullNameEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:hint="FullName"
+            android:inputType="text"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:id="@+id/mobileEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:hint="Mobile"
+            android:inputType="numberDecimal"
+            android:maxLength="10"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:id="@+id/postalAddressEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:hint="Address"
+            android:inputType="textMultiLine"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:id="@+id/aadharEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:hint="Aadhar No."
+            android:inputType="numberDecimal"
+            android:maxLength="12"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:layout_marginTop="30dp"/>
+
+        <EditText
+            android:id="@+id/panEditText"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:hint="PAN No."
+            android:inputType="text"
+            android:maxLength="10"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:layout_marginTop="30dp"/>
+
+
+
+        <EditText
+            android:id="@+id/space"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:hint="No Of Vehicle Space"
+            android:inputType="numberDecimal"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:layout_marginTop="15dp"/>
+
+
+        <EditText
+            android:id="@+id/userName"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:hint="username"
+            android:inputType="text"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:layout_marginTop="15dp"/>
+
+
+        <EditText
+            android:id="@+id/userPassword"
+            android:layout_width="fill_parent"
+            android:layout_height="40dp"
+            android:hint="password"
+            android:inputType="textPassword"
+            android:background="#f3f3f3"
+            android:paddingLeft="5dp"
+            android:layout_marginTop="15dp"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/backButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="back"
+                android:hint="address"
+                android:background="#f3f3f3"
+                android:layout_margin="5sp"
+                />
+
+            <Button
+                android:id="@+id/clearButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="clear"
+                android:hint="address"
+                android:background="#f3f3f3"
+                android:layout_margin="5sp"/>
+
+
+            <Button
+                android:id="@+id/saveButton"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="save"
+                android:hint="address"
+                android:background="#f3f3f3"
+                android:layout_margin="5sp"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
