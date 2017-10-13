@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.swarkad.onlineparkingsystem.AdminUserProfile">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="show"
+        android:id="@+id/showbtn"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView1"
+        android:text="list====="/>
+
+    <Button
+        android:id="@+id/listviewbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="listview data" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="show Map"
+        android:id="@+id/mapButton"/>
+
+</LinearLayout>

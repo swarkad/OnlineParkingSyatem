@@ -6,7 +6,7 @@ package com.example.swarkad.onlineparkingsystem;
 
 public class CommanLib {
     static boolean loginowner=false;
-    MainActivity mainActivity;
+    static MainActivity mainActivity;
 
 
 }

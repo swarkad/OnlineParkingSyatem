@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
                 String userType=(String) newUserRegistrationSpinner.getSelectedItem();
                 // userTypeTextView.setText(userType);
 
+                CommanLib.mainActivity=MainActivity.this;
+
                 if(userType.equalsIgnoreCase("Owner User Registration"))
                 {
                     Intent intent = new Intent(MainActivity.this,NewOwnerRegistration.class);
@@ -134,6 +136,10 @@ public class MainActivity extends AppCompatActivity {
     public void checkLogin(View view)
     {
 
+        String uname,upass;
+        uname=userName.getText().toString();
+        upass=userPassword.getText().toString();
+
         if(userType.equals("Select User"))
         {
             showAlertDialog("Please Select User Type From Top DropDwon List");
@@ -141,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(userType.equals("Admin User"))
         {
-            if((userName.getText().toString().equals("satish")) && (userPassword.getText().toString().equals("password")))
+            if((uname.equals("satish")) && (upass.equals("password")))
             {
                 Intent intent = new Intent(MainActivity.this,AdminUserProfile.class);
                 //   EditText editText = (EditText) findViewById(R.id.userPassword);
@@ -160,45 +166,14 @@ public class MainActivity extends AppCompatActivity {
 
         if(userType.equals("Owner User"))
         {
-            if((userName.getText().toString().equals("satish")) && (userPassword.getText().toString().equals("password")))
+            if(!uname.equals("") && !uname.equals(null) && !upass.equals("") && !upass.equals(null))
             {
 
                 String str="loginmethod";
 
                 BackgroundTask backgroundTask=new BackgroundTask(getApplicationContext());
-                backgroundTask.execute(str,"zz","zz");
+                backgroundTask.execute(str,uname,upass);
                 finish();
-
-                if(backgroundTask.getStatus() == AsyncTask.Status.PENDING){
-                    // My AsyncTask has not started yet
-                }
-
-                if(backgroundTask.getStatus() == AsyncTask.Status.RUNNING){
-                    // My AsyncTask is currently doing work in doInBackground()
-                }
-
-                if(backgroundTask.getStatus() == AsyncTask.Status.FINISHED){
-                    // My AsyncTask is done and onPostExecute was called
-                }
-
-
-
-//                Intent intent = new Intent(MainActivity.this,AdminUserProfile.class);
-//                //   EditText editText = (EditText) findViewById(R.id.userPassword);
-//                //   String message = editText.getText().toString();
-//               //   intent.putExtra("", message);
-//               startActivity(intent);
-//
-//               clear(clearButton);
-//                    CommanLib.loginowner=false;
-//
-
-
-
-
-
-
-
 
 
             }
@@ -211,15 +186,14 @@ public class MainActivity extends AppCompatActivity {
 
         if(userType.equals("End User"))
         {
-            if((userName.getText().toString().equals("satish")) && (userPassword.getText().toString().equals("password")))
+            if(!uname.equals("") && !uname.equals(null) && !upass.equals("") && !upass.equals(null))
             {
-                Intent intent = new Intent(MainActivity.this,AdminUserProfile.class);
-                //   EditText editText = (EditText) findViewById(R.id.userPassword);
-                //   String message = editText.getText().toString();
-                //   intent.putExtra("", message);
-                startActivity(intent);
 
-                clear(clearButton);
+                String str="EndUserLoginMethod";
+
+                BackgroundTask backgroundTask=new BackgroundTask(getApplicationContext());
+                backgroundTask.execute(str,uname,upass);
+                finish();
 
             }
             else
@@ -229,32 +203,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-//        String str="loginmethod";
-//
-//        BackgroundTask backgroundTask=new BackgroundTask(getApplicationContext());
-//        backgroundTask.execute(str,"satish","pass");
-//        finish();
-//
-//        String username,password;
-//      //  username=userName.getText();
-//        if((userName.getText().toString().equals("satish")) && (userPassword.getText().toString().equals("password")))
-//        {
-//            Toast.makeText(MainActivity.this,"login Successfully",Toast.LENGTH_SHORT).show();
-//        }
-//        else
-//        {
-//            Toast.makeText(MainActivity.this,"userName or Password is worng",Toast.LENGTH_SHORT).show();
-//        }
-
-
-
-
-//        String str="loginmethod";
-//
-//        BackgroundTask backgroundTask=new BackgroundTask(getApplicationContext());
-//        backgroundTask.execute(str,"satish","pass");
-//        finish();
-//
     }
 
 
@@ -307,3 +255,29 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+//  if(backgroundTask.getStatus() == AsyncTask.Status.PENDING){
+//          // My AsyncTask has not started yet
+//          }
+//
+//          if(backgroundTask.getStatus() == AsyncTask.Status.RUNNING){
+//          // My AsyncTask is currently doing work in doInBackground()
+//          }
+//
+//          if(backgroundTask.getStatus() == AsyncTask.Status.FINISHED){
+//          // My AsyncTask is done and onPostExecute was called
+//          }
+//
+
+
+//                Intent intent = new Intent(MainActivity.this,AdminUserProfile.class);
+//                //   EditText editText = (EditText) findViewById(R.id.userPassword);
+//                //   String message = editText.getText().toString();
+//               //   intent.putExtra("", message);
+//               startActivity(intent);
+//
+//               clear(clearButton);
+//                    CommanLib.loginowner=false;
+//

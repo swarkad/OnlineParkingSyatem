@@ -43,7 +43,9 @@
 
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".OwnerUserProfile" />
+        <activity android:name=".EndUserProfile"></activity>
     </application>
 
 </manifest>

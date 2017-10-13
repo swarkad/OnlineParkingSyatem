@@ -31,6 +31,7 @@ public class BackgroundTask extends AsyncTask<String,String,String>
 
     Context activity;
     AlertDialog alertDialog;
+    String str;
 
     BackgroundTask(Context ctx)
     {
@@ -50,8 +51,9 @@ public class BackgroundTask extends AsyncTask<String,String,String>
         String reg_url="http://10.0.2.2/parkingsystem/OwnerUserRegistration.php";
         String reg_url1="http://10.0.2.2/parkingsystem/EndUserRegistration.php";
         String login_url="http://10.0.2.2/parkingsystem/login.php";
+        String end_user_login_url="http://10.0.2.2/parkingsystem/EndUserLogin.php";
 
-        String str=params[0];
+         str=params[0];
         if(str.equals("OwnerUserRegistration"))
         {
             String fullname,mobile,email,address,aadharno,panno,space,username,password,date;
@@ -192,14 +194,24 @@ public class BackgroundTask extends AsyncTask<String,String,String>
 
         }
 
-        if (str.equals("loginmethod"))
+        if (str.equals("loginmethod") || str.equals("EndUserLoginMethod") )
         {
             String username, password;
             username = params[1];
             password = params[2];
 
             try {
-                URL url=new URL(login_url);
+                URL url;
+
+                if(str.equals("loginmethod"))
+                {
+                    url=new URL(login_url);
+                }
+                else
+                {
+                    url=new URL(end_user_login_url);
+                }
+               // URL url=new URL(login_url);
                 HttpURLConnection httpURLConnection=(HttpURLConnection)url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
                 httpURLConnection.setDoOutput(true);
@@ -262,22 +274,35 @@ public class BackgroundTask extends AsyncTask<String,String,String>
     protected void onPostExecute(String result)
     {
 
-//        Intent intent = new Intent(activity,AdminUserProfile.class);
-//        //   EditText editText = (EditText) findViewById(R.id.userPassword);
-//        //   String message = editText.getText().toString();
-//        //   intent.putExtra("", message);
-//        activity.startActivity(intent);
+
+        if(result.equals("<h3> successful connection </h3>      welcome login successfull ")) {
+
+            if(str.equals("loginmethod")) {
+                Intent intent = new Intent(CommanLib.mainActivity, OwnerUserProfile.class);
+                //   EditText editText = (EditText) findViewById(R.id.userPassword);
+                //   String message = editText.getText().toString();
+                //   intent.putExtra("", message);
+                CommanLib.mainActivity.startActivity(intent);
+            }
 
 
+            if(str.equals("EndUserLoginMethod")) {
+                Intent intent = new Intent(CommanLib.mainActivity, EndUserProfile.class);
+                //   EditText editText = (EditText) findViewById(R.id.userPassword);
+                //   String message = editText.getText().toString();
+                //   intent.putExtra("", message);
+                CommanLib.mainActivity.startActivity(intent);
+            }
 
 
-        if(result.equals("<h3> successful connection </h3>      welcome login successfull")) {
-            CommanLib.loginowner=true;
-            Toast.makeText(activity, result + "-----------", Toast.LENGTH_LONG).show();
+            Toast.makeText(activity, " Welcome LogIn Successfull ", Toast.LENGTH_LONG).show();
         }
         else
         {
-            Toast.makeText(activity,result,Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(CommanLib.mainActivity, MainActivity.class);
+            CommanLib.mainActivity.startActivity(intent);
+
+            Toast.makeText(activity,"Wrong Username or Password",Toast.LENGTH_LONG).show();
             Log.d("error ---",result);
         }
 
