@@ -2,6 +2,7 @@ package com.example.swarkad.onlineparkingsystem;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.Toast;
@@ -28,18 +29,18 @@ import java.net.URLEncoder;
 public class BackgroundTask extends AsyncTask<String,String,String>
 {
 
-    Context ctx;
+    Context activity;
     AlertDialog alertDialog;
 
     BackgroundTask(Context ctx)
     {
-        this.ctx=ctx;
+        activity=ctx;
     }
 
     @Override
     protected void onPreExecute()
     {
-        alertDialog=new AlertDialog.Builder(ctx).create();
+        alertDialog=new AlertDialog.Builder(activity).create();
         alertDialog.setTitle("login information ============");
     }
 
@@ -260,11 +261,23 @@ public class BackgroundTask extends AsyncTask<String,String,String>
     @Override
     protected void onPostExecute(String result)
     {
-        if(result.equals("registration successfull()"))
-            Toast.makeText(ctx,result+"-----------",Toast.LENGTH_LONG).show();
+
+//        Intent intent = new Intent(activity,AdminUserProfile.class);
+//        //   EditText editText = (EditText) findViewById(R.id.userPassword);
+//        //   String message = editText.getText().toString();
+//        //   intent.putExtra("", message);
+//        activity.startActivity(intent);
+
+
+
+
+        if(result.equals("<h3> successful connection </h3>      welcome login successfull")) {
+            CommanLib.loginowner=true;
+            Toast.makeText(activity, result + "-----------", Toast.LENGTH_LONG).show();
+        }
         else
         {
-            Toast.makeText(ctx,result,Toast.LENGTH_LONG).show();
+            Toast.makeText(activity,result,Toast.LENGTH_LONG).show();
             Log.d("error ---",result);
         }
 

@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     Spinner userTypeSpinner,newUserRegistrationSpinner;
     TextView userTypeTextView;
-    Button loginButton,clearButton,mapButton;
+    Button loginButton,clearButton;
     EditText userName,userPassword;
     ArrayAdapter<String> myAdapter;
     String userType;
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         newUserRegistrationSpinner=(Spinner)findViewById(R.id.newRegistrationSpinner);
         loginButton=(Button)findViewById(R.id.loginButton);
         clearButton=(Button)findViewById(R.id.clearButton);
-        mapButton=(Button)findViewById(R.id.mapButton);
         userName=(EditText)findViewById(R.id.userName);
         userPassword=(EditText)findViewById(R.id.userPassword);
 
@@ -84,23 +83,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mapButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-
-                Intent intent = new Intent(MainActivity.this,MapsActivity.class);
-                //   EditText editText = (EditText) findViewById(R.id.userPassword);
-                //   String message = editText.getText().toString();
-                //   intent.putExtra("", message);
-                startActivity(intent);
-
-//                String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f", null, null, null, null);
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-//                startActivity(intent);
-
-            }
-        });
 
         newUserRegistrationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -179,13 +162,44 @@ public class MainActivity extends AppCompatActivity {
         {
             if((userName.getText().toString().equals("satish")) && (userPassword.getText().toString().equals("password")))
             {
-                Intent intent = new Intent(MainActivity.this,AdminUserProfile.class);
-                //   EditText editText = (EditText) findViewById(R.id.userPassword);
-                //   String message = editText.getText().toString();
-                //   intent.putExtra("", message);
-                startActivity(intent);
 
-                clear(clearButton);
+                String str="loginmethod";
+
+                BackgroundTask backgroundTask=new BackgroundTask(getApplicationContext());
+                backgroundTask.execute(str,"zz","zz");
+                finish();
+
+                if(backgroundTask.getStatus() == AsyncTask.Status.PENDING){
+                    // My AsyncTask has not started yet
+                }
+
+                if(backgroundTask.getStatus() == AsyncTask.Status.RUNNING){
+                    // My AsyncTask is currently doing work in doInBackground()
+                }
+
+                if(backgroundTask.getStatus() == AsyncTask.Status.FINISHED){
+                    // My AsyncTask is done and onPostExecute was called
+                }
+
+
+
+//                Intent intent = new Intent(MainActivity.this,AdminUserProfile.class);
+//                //   EditText editText = (EditText) findViewById(R.id.userPassword);
+//                //   String message = editText.getText().toString();
+//               //   intent.putExtra("", message);
+//               startActivity(intent);
+//
+//               clear(clearButton);
+//                    CommanLib.loginowner=false;
+//
+
+
+
+
+
+
+
+
 
             }
             else

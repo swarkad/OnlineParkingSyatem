@@ -50,10 +50,16 @@ public class AdminUserProfile extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f", null, null, null, null);
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+                Intent intent = new Intent(AdminUserProfile.this,MapsActivity.class);
+                //   EditText editText = (EditText) findViewById(R.id.userPassword);
+                //   String message = editText.getText().toString();
+                //   intent.putExtra("", message);
                 startActivity(intent);
+
+
+//                String uri = String.format(Locale.ENGLISH, "http://maps.google.com/maps?saddr=%f,%f&daddr=%f,%f", null, null, null, null);
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
+//                startActivity(intent);
 
             }
         });
